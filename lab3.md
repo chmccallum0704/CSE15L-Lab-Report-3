@@ -202,6 +202,90 @@ Caitlins-MBP:Alcohol_Problems caitimccallum$
 In this example, I've used -r, and -c and -i all together in oder to list each file within the current working directory, which is docsearch/government/Alchohol_Problems, along with the count of matches to a case independent argument found within each file. I could see this being very useful for data analytics, expecially if I was searching for the frequency of a keyword between files and I'd like to perform arithmetic on the resulting count.
 
 sources: https://man7.org/linux/man-pages/man1/grep.1.html, https://docs.rackspace.com/docs/use-the-linux-grep-command
+### `-v`: Invert Match
+#### Example 1:
+```
+Caitlins-MacBook-Pro:government caitimccallum$ grep -rc '§' | grep -v .txt:0
+./About_LSC/commission_report.txt:55
+./About_LSC/LegalServCorp_v_VelazquezDissent.txt:30
+./About_LSC/LegalServCorp_v_VelazquezOpinion.txt:22
+./About_LSC/Protocol_Regarding_Access.txt:1
+./About_LSC/ODonnell_et_al_v_LSCdecision.txt:1
+./About_LSC/State_Planning_Special_Report.txt:9
+./Env_Prot_Agen/bill.txt:7
+./Gen_Account_Office/og97032.txt:9
+./Gen_Account_Office/og99036.txt:9
+./Gen_Account_Office/og97019.txt:7
+./Gen_Account_Office/og97020.txt:6
+./Gen_Account_Office/ffm.txt:15
+./Gen_Account_Office/og97023.txt:6
+./Gen_Account_Office/og96011.txt:15
+./Gen_Account_Office/Letter_Walkeraug17let.txt:11
+./Gen_Account_Office/og97051.txt:8
+./Gen_Account_Office/og97045.txt:8
+./Gen_Account_Office/og97050.txt:11
+./Gen_Account_Office/og96038.txt:8
+./Gen_Account_Office/og98029.txt:7
+./Gen_Account_Office/og96012.txt:13
+./Gen_Account_Office/og97046.txt:7
+./Gen_Account_Office/og97052.txt:11
+./Gen_Account_Office/d03232sp.txt:11
+./Gen_Account_Office/og97043.txt:6
+./Gen_Account_Office/og96028.txt:11
+./Gen_Account_Office/og96014.txt:8
+./Gen_Account_Office/og97041.txt:12
+./Gen_Account_Office/og96015.txt:8
+./Gen_Account_Office/og96031.txt:11
+./Gen_Account_Office/og96033.txt:7
+./Gen_Account_Office/og96027.txt:6
+./Gen_Account_Office/og98022.txt:8
+./Gen_Account_Office/og96026.txt:11
+./Gen_Account_Office/og96032.txt:7
+./Gen_Account_Office/og96036.txt:12
+./Gen_Account_Office/og96022.txt:12
+./Gen_Account_Office/og96023.txt:7
+./Gen_Account_Office/og96037.txt:9
+./Gen_Account_Office/og98032.txt:6
+./Gen_Account_Office/og98026.txt:7
+./Gen_Account_Office/og98030.txt:8
+./Gen_Account_Office/og98024.txt:9
+./Gen_Account_Office/og96009.txt:9
+./Gen_Account_Office/og96021.txt:7
+./Gen_Account_Office/og98018.txt:7
+./Gen_Account_Office/og96034.txt:8
+./Gen_Account_Office/og98019.txt:7
+./Gen_Account_Office/og96020.txt:9
+./Gen_Account_Office/og96047.txt:8
+./Gen_Account_Office/og98041.txt:8
+./Gen_Account_Office/og97038.txt:7
+./Gen_Account_Office/og97011.txt:13
+./Gen_Account_Office/og97039.txt:9
+./Gen_Account_Office/og98040.txt:8
+./Gen_Account_Office/og96045.txt:8
+./Gen_Account_Office/og98044.txt:10
+./Gen_Account_Office/og96041.txt:22
+./Gen_Account_Office/og97001.txt:9
+./Gen_Account_Office/og97028.txt:12
+./Gen_Account_Office/og96040.txt:9
+./Gen_Account_Office/og98045.txt:8
+./Gen_Account_Office/og96042.txt:8
+./Gen_Account_Office/og97002.txt:9
+./Gen_Account_Office/og97003.txt:7
+./Gen_Account_Office/og96043.txt:12
+./Gen_Account_Office/og98046.txt:7
+./Post_Rate_Comm/Gleiman_gca2000.txt:1
+./Post_Rate_Comm/ReportToCongress2002WEB.txt:22
+Caitlins-MacBook-Pro:government caitimccallum$ 
+```
+In this example I've used two instances of the grep command. `grep -rc '§'` finds all instances of the character '§' in my current working directory, `
+
+source: https://docs.rackspace.com/docs/use-the-linux-grep-command
+#### Example 2: 
+```
+
+```
+
+source:
 ### `-E`: Extended Regular Expressions
 #### Example 1: 
 ```
