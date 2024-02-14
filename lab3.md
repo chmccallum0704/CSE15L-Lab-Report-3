@@ -80,7 +80,7 @@ Yet the Legal Services report faults growers, farm-labor
 Chavez said she called Colorado Legal Services because she felt
 Caitlins-MBP:Media caitimccallum$
 ```
-In this example I use the command line option -i for grep in order to display all instances of the word 'legal' regardless of case. As shown, when I ran the grep command without the -i command line option, there was no match found for 'legal' in the file since it only appears as 'Legal'. This could be useful for searching for a keyword in a file that may or may not have case differences. 
+In this code block, I use the command line option `-i` for grep in order to display all instances of the word "legal" regardless of case. As shown, when I ran the grep command without the `-i` command line option, there was no match found for "legal" in the file since it only appears as "Legal". This could be particularly useful for ensuring that all instances of a keyword are found, regrdless of case, which is beneficial when the case usage of the word is inconsistent or unknown. 
 
 source: https://docs.rackspace.com/docs/use-the-linux-grep-command
 #### Example 2:
@@ -94,9 +94,9 @@ helping East New York's poor, he's getting booted from the bodega
 helping the working poor navigate the legal system. Immigration,
 Caitlins-MBP:Media caitimccallum$ 
 ```
-In this example I use the command line option -i for grep in order to display all instances of the word 'poor' in the file Advocate_for_Poor.txt. When I ran grep originally without -i, there were only 2 lines found within the file that contained the word 'poor', this excluded the title line in which 'poor' is capitalized. This could be useful for if I was searching for a keyword in a file and also wanted to include the title of the text within the file which is often capitalized. 
-source: https://docs.rackspace.com/docs/use-the-linux-grep-command
+In this example two variations of the grep command are executed to search for the term "poor" within the file `Advocate_for_Poor.txt.`. The command `grep 'poor' Advocate_for_Poor.txt` performs a case-sensitive search for the word "poor" within the specified file. It returns lines where "poor" appears exactly as typed, in lowercase. The command `grep -i 'poor' Advocate_for_Poor.txt` modifies the search to be case-insensitive, allowing for the detection of "poor" in any combination of uppercase and lowercase letters. This command shows additional instances where "Poor" is capitalized. The initial search missed this occurrence due to its case-sensitive limitation. The inclusion of `-i` in the second command highlights its utility in ensuring comprehensive search results, especially useful when the capitalization of keywords may vary throughout the document which may occur when attempting to capture the title or heading of the document in the search.
 
+source: https://docs.rackspace.com/docs/use-the-linux-grep-command
 ### `-c`: Print Number of Line Matches
 #### Example 1:
 ```
@@ -105,7 +105,7 @@ Caitlins-MBP:Media caitimccallum$ grep -c 'legal' Farm_workers.txt
 Caitlins-MBP:Media caitimccallum$ grep -ci 'legal' Farm_workers.txt
 8
 ```
-Using the same file as the example above, I can demonstrate how the -c and -i commands can work in conjunction to display a more easily read output. As shown before, when -i is not called with grep when looking for 'legal' in Farm_workers.txt, I get zero matches. Now rather than counting each line of output, which could be expansive, I can use -c command line option to quickly and easily count the number of matches.
+In this code block, two grep commands are executed with different options to search for the term "legal" within the file Farm_workers.txt. The command `grep -c 'legal' Farm_workers.txt` uses the `-c` option with grep to count the number of lines that contain the exact word "legal" in a case-sensitive manner. The output, 0, indicates that there are no lines in Farm_workers.txt where "legal" appears in lowercase. The command `grep -ci 'legal' Farm_workers.txt` performs a case-insensitive search, counting occurrences of "legal" regardless of case by incorporating the `-i` option along with `-c`. The output, 8, reveals that there are eight instances within the file where "legal" appears, when not restricted by case sensitivity. This approach demonstrates the effectiveness of using `-c` to provide a consise method to quantify how many times a specified term appears in a document without manually reviewing each instance.
 
 source: https://docs.rackspace.com/docs/use-the-linux-grep-command
 #### Example 2:
@@ -113,7 +113,7 @@ source: https://docs.rackspace.com/docs/use-the-linux-grep-command
 Caitlins-MBP:Media caitimccallum$ grep -c 'a' A_helping_hand.txt 
 119
 ```
-In this example, I'm looking for an extremely common word in A_helping_hand.txt. If I were to just use the grep command without -c, I would have a harder time actually counting the matches by counting lines. In the case of searching for the number of times a common word occurs in a longer text file, using the -c command line option is preferable.
+In this code block, the grep command is used with the `-c` option to search for the letter "a" within the file A_helping_hand.txt. The command `grep -c 'a' A_helping_hand.txt` instructs grep to count the number of lines that contain at least one occurrence of the letter "a" by applying the `-c` option. The output, 119, indicates that the letter "a" appears in 119 lines of the `file A_helping_hand.txt`. This method is particularly useful when dealing with simple but frequently occurring elements, such as common words or letters, in a document. Rather than generating an overwhelming list of lines and manually counting each occurrence, the `-c` option simplifies the process by providing a direct count.
 
 source: https://docs.rackspace.com/docs/use-the-linux-grep-command
 ### `-r`: Recursive Search
@@ -187,7 +187,7 @@ Media//Bridging_legal_aid_gap.txt:restraining order. California can -and must --
 Caitlins-MBP:government caitimccallum$ grep -r 'California' Media/ | wc -l
       64
 ```
-In this example, I'm able to use the grep command on a directory rather than a file thanks for the -r command line option. I think that if I were searching through a large file system such as docsearch, I might be interested in how many times my state, California, is mentioned within the /government directory. In this case I used a piping command with my grep command in order to see the actual number. I think this could be a very useful command for finding a keyword within a multitude of files without explicitly typing them out.
+In this code block, the grep command is employed to search recursively for the term "California" across all files within the Media/ directory, and the output is further processed to quantify the occurrences. The command `grep -r 'California' Media/` uses the `-r` option to enable recursive searching, so grwill look for the term "California" in all files under the `Media/` directory and its subdirectories. This search yields a list of lines from various files where "California" is mentioned. The output from grep is then piped, `|` to the command `wc -l`, which counts the lines. The final output, 64, indicates that there are sixty-four lines within the files of the `Media/` directory that contain the term "California". This method is exceptionally useful for efficiently identifying and quantifying the presence of a specific keyword or phrase within a large collection of documents without the need to individually examine each file.
 
 source: https://man7.org/linux/man-pages/man1/grep.1.html
 #### Example 2: 
@@ -199,93 +199,10 @@ Caitlins-MBP:Alcohol_Problems caitimccallum$ grep -rci alcohol
 ./Session4-PDF.txt:195
 Caitlins-MBP:Alcohol_Problems caitimccallum$ 
 ```
-In this example, I've used -r, and -c and -i all together in oder to list each file within the current working directory, which is docsearch/government/Alchohol_Problems, along with the count of matches to a case independent argument found within each file. I could see this being very useful for data analytics, expecially if I was searching for the frequency of a keyword between files and I'd like to perform arithmetic on the resulting count.
+In this example, a combination of grep options `-r`, `-c`, and `-i` is utilized to comprehensively search through the files within the `Alcohol_Problems` directory for occurrences of the word "alcohol", irrespective of case. The `r` command option enables recursive search, allowing grep to inspect all files within the `Alcohol_Problems` directory and its subdirectories. `-c` counts the number of occurrences of the search term in each file, rather than listing every instance. `-i` makes the search case-insensitive, capturing all instances of "alcohol". The output provides a clear, concise summary showing the file paths relative to the current directory, alongside the count of "alcohol" mentions within each file. This approach could be useful for data analytics purposes, where understanding the frequency of a keyword across various documents is essential.
 
 sources: https://man7.org/linux/man-pages/man1/grep.1.html, https://docs.rackspace.com/docs/use-the-linux-grep-command
-### `-v`: Invert Match
-#### Example 1:
-```
-Caitlins-MacBook-Pro:government caitimccallum$ grep -rc '§' | grep -v .txt:0
-./About_LSC/commission_report.txt:55
-./About_LSC/LegalServCorp_v_VelazquezDissent.txt:30
-./About_LSC/LegalServCorp_v_VelazquezOpinion.txt:22
-./About_LSC/Protocol_Regarding_Access.txt:1
-./About_LSC/ODonnell_et_al_v_LSCdecision.txt:1
-./About_LSC/State_Planning_Special_Report.txt:9
-./Env_Prot_Agen/bill.txt:7
-./Gen_Account_Office/og97032.txt:9
-./Gen_Account_Office/og99036.txt:9
-./Gen_Account_Office/og97019.txt:7
-./Gen_Account_Office/og97020.txt:6
-./Gen_Account_Office/ffm.txt:15
-./Gen_Account_Office/og97023.txt:6
-./Gen_Account_Office/og96011.txt:15
-./Gen_Account_Office/Letter_Walkeraug17let.txt:11
-./Gen_Account_Office/og97051.txt:8
-./Gen_Account_Office/og97045.txt:8
-./Gen_Account_Office/og97050.txt:11
-./Gen_Account_Office/og96038.txt:8
-./Gen_Account_Office/og98029.txt:7
-./Gen_Account_Office/og96012.txt:13
-./Gen_Account_Office/og97046.txt:7
-./Gen_Account_Office/og97052.txt:11
-./Gen_Account_Office/d03232sp.txt:11
-./Gen_Account_Office/og97043.txt:6
-./Gen_Account_Office/og96028.txt:11
-./Gen_Account_Office/og96014.txt:8
-./Gen_Account_Office/og97041.txt:12
-./Gen_Account_Office/og96015.txt:8
-./Gen_Account_Office/og96031.txt:11
-./Gen_Account_Office/og96033.txt:7
-./Gen_Account_Office/og96027.txt:6
-./Gen_Account_Office/og98022.txt:8
-./Gen_Account_Office/og96026.txt:11
-./Gen_Account_Office/og96032.txt:7
-./Gen_Account_Office/og96036.txt:12
-./Gen_Account_Office/og96022.txt:12
-./Gen_Account_Office/og96023.txt:7
-./Gen_Account_Office/og96037.txt:9
-./Gen_Account_Office/og98032.txt:6
-./Gen_Account_Office/og98026.txt:7
-./Gen_Account_Office/og98030.txt:8
-./Gen_Account_Office/og98024.txt:9
-./Gen_Account_Office/og96009.txt:9
-./Gen_Account_Office/og96021.txt:7
-./Gen_Account_Office/og98018.txt:7
-./Gen_Account_Office/og96034.txt:8
-./Gen_Account_Office/og98019.txt:7
-./Gen_Account_Office/og96020.txt:9
-./Gen_Account_Office/og96047.txt:8
-./Gen_Account_Office/og98041.txt:8
-./Gen_Account_Office/og97038.txt:7
-./Gen_Account_Office/og97011.txt:13
-./Gen_Account_Office/og97039.txt:9
-./Gen_Account_Office/og98040.txt:8
-./Gen_Account_Office/og96045.txt:8
-./Gen_Account_Office/og98044.txt:10
-./Gen_Account_Office/og96041.txt:22
-./Gen_Account_Office/og97001.txt:9
-./Gen_Account_Office/og97028.txt:12
-./Gen_Account_Office/og96040.txt:9
-./Gen_Account_Office/og98045.txt:8
-./Gen_Account_Office/og96042.txt:8
-./Gen_Account_Office/og97002.txt:9
-./Gen_Account_Office/og97003.txt:7
-./Gen_Account_Office/og96043.txt:12
-./Gen_Account_Office/og98046.txt:7
-./Post_Rate_Comm/Gleiman_gca2000.txt:1
-./Post_Rate_Comm/ReportToCongress2002WEB.txt:22
-Caitlins-MacBook-Pro:government caitimccallum$ 
-```
-In this example I've used two instances of the grep command. `grep -rc '§'` finds all instances of the character '§' in my current working directory, `
 
-source: https://docs.rackspace.com/docs/use-the-linux-grep-command
-#### Example 2: 
-```
-
-```
-
-source:
 ### `-E`: Extended Regular Expressions
 #### Example 1: 
 ```
@@ -523,7 +440,7 @@ Caitlins-MBP:Env_Prot_Agen caitimccallum$ grep -oE "[0-9]{4}" jeffordslieberm.tx
 1999
 Caitlins-MBP:Env_Prot_Agen caitimccallum$
 ```
-In this example, I'm using the -E command line option which allows for my PATTERN arguement "[0-9]{4}" to be used as an extended regular expression. Specifically, I am looking for a pattern of 4 characters, which can be from [0-9], this pattern is typically seen with a year such as '1999' or '2021' although it isn't always a year. In order to only print the matched parts of the matching line I used the -o command line option for readability. I could imagine that searching for the dates listed in a file would be a very handy. You could even use -r with the code given above to search recursively through a directory, though I did not for brevity.
+In this code block, the grep command is used with the `-oE` options to search for and extract patterns matching exactly four consecutive digits within the file `jeffordslieberm.txt.`. The `-o` option tells grep to output only the matching parts of the lines, not the entire lines themselves.  The `-E` option enables for the interpretation of the pattern as an Extended Regular Expression (ERE), which allows for more complex pattern matching. The ERE `"[0-9]{4}"` is the pattern being searched for and specifies a sequence of exactly four digits (ranging from 0 to 9). The output lists numerous instances of four-digit sequences found within the file. These sequences include many that are typical representations of years (e.g., "1997", "2001", "2020"), as well as others that might not represent years (e.g., "1179", "4402"). This command could be highly effective for quickly extracting dates or other numerical information from a text file, offering a straightforward way to gather data that follows a specific numerical format.
 
 Sources: https://man7.org/linux/man-pages/man1/grep.1.html, https://www.geeksforgeeks.org/grep-command-in-unixlinux/
 
@@ -537,6 +454,6 @@ May 17, 2001
 October 18, 2001
 Caitlins-MBP:Env_Prot_Agen caitimccallum$
 ```
-Following from my first example using -E to implement extended regular expressions for pattern matching an expression within a file, I wanted to see if I could find all of the dates with the format "Month day, year". In order to accomplish this, I used three bracket expressions along with three ranges respective to them. The first "[[:alpha:]]{2,10}" indicates that the pattern of the first word should be 2-10 alphabetic characters, with the upper limit being set at the month with the longest name. The second peice, "[0-9]{2}" indicates that after a whitespace there should be a 2 digit number which can range from 00-99 inclusively. The third and final piece "[0-9]{4}" is the same arguement I used to find the occurences of 4 digit years in my last example, the only difference now is that it should be looking for that pattern to occur directly after both previous arguements and a ", ". Overall I think regEx is really interesting and useful so it's very valuable to be able to use regular expressions at the command line to search for specific patterns such as dates, special codes, ect.. 
+In this code block, the grep command is utilized with the `-oE` options to search for patterns within the file `jeffordslieberm.txt` that match specific date formats, namely "Month day, year". The `-o` option instructs grep to only output the portions of the file that match the specified pattern. The `-E` option enables for the interpretation of the pattern as an Extended Regular Expression (ERE). The ERE `"[[:alpha:]]{2,10} [0-9]{2}, [0-9]{4}"` is the regex pattern used for matching dates in the format of "Month day, year". `"[[:alpha:]]{2,10}"` matches an alphabetic string between 2 and 10 characters long. `" [0-9]{2}, "` looks for a two-digit day, followed by a comma and a space, covering days from 00 to 99. `"[0-9]{4}"` matches a four-digit year, which can range from 0000 to 9999. This technique could be useful for searching through documents for dates in a consistent format, allowing for efficient extraction. It illustrates the utility of regex for data analysis, historical research, or any application where identifying specific patterns, such as dates, is crucial. 
 
 Sources: https://man7.org/linux/man-pages/man1/grep.1.html, https://en.wikibooks.org/wiki/Regular_Expressions/POSIX-Extended_Regular_Expressions, https://www.gnu.org/software/findutils/manual/html_node/find_html/posix_002dextended-regular-expression-syntax.html
